@@ -15,7 +15,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": ".",
@@ -24,7 +23,8 @@
         "node_modules/*",
         "src/*"
       ]
-    }
+    },
+    "strictPropertyInitialization": false
   },
   "exclude": [
     "node_modules",
