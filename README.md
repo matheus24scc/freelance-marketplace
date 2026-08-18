@@ -119,3 +119,12 @@ cd server && npm run test:e2e
 ## License
 
 MIT
+
+## Status (checkup 2026-08-18)
+> Revisado na campanha de repo-checkup. Relatorio completo: `~/repo-checkup/reports/freelance-marketplace.md` (local do mantenedor, nao no repo).
+- **Build/Install**: Server `npm install` RC=0 + `npm run build` (inclui `prebuild: prisma generate`) RC=0 (0 erros TS).
+- **Smoke test**: `node dist/main` inicializa AppModule + todos os submodulos, falha so com `ECONNREFUSED` (Postgres ausente) — app iniciou.
+- **Para rodar de ponta-a-ponta precisa de**: PostgreSQL (`DATABASE_URL`) + Stripe (API keys).
+- **Inconsistencias conhecidas (README vs codigo)**: Arquitetura dupla Prisma + TypeORM (AuthModule nao importava `PrismaModule` — bug de DI corrigido); 0 testes; eslint nao configurado.
+- **Seguranca**: 29 vulns (3 low/17 moderate/8 high/1 critical) — fixes major NestJS 10->11 sao breaking; nao aplicado (decisao humana).
+- **Estado resumido**: build verde + boot (app inicia, falta Postgres para runtime completo).
